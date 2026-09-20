@@ -38,7 +38,12 @@ def health_check():
     return {"status": "ok", "has_api_key": has_key}
 
 
+@app.get("/")
+def read_root():
+    return {"status": "healthy", "service": "ExecBrief API"}
+
 @app.post("/api/rebuild")
+@app.post("/rebuild")
 def api_rebuild(req: RebuildRequest):
     if not os.environ.get("GEMINI_API_KEY"):
         raise HTTPException(status_code=401, detail="GEMINI_API_KEY not set in .env")
@@ -51,6 +56,7 @@ def api_rebuild(req: RebuildRequest):
 
 
 @app.get("/api/brief")
+@app.get("/brief")
 def api_brief(date: str):
     try:
         dt = datetime.strptime(date, "%Y-%m-%d").replace(hour=8)
@@ -63,6 +69,7 @@ def api_brief(date: str):
 
 
 @app.get("/api/ledger")
+@app.get("/ledger")
 def api_ledger(date: str):
     try:
         dt = datetime.strptime(date, "%Y-%m-%d").replace(hour=8)
@@ -75,6 +82,7 @@ def api_ledger(date: str):
 
 
 @app.post("/api/qa")
+@app.post("/qa")
 def api_qa(req: QARequest):
     if not os.environ.get("GEMINI_API_KEY"):
         raise HTTPException(status_code=401, detail="GEMINI_API_KEY not set")
