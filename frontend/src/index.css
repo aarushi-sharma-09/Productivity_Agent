@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root {
+    @apply h-full w-full bg-[#06060f] text-slate-300 font-sans antialiased m-0 p-0;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.06)] overflow-hidden transition-all duration-300 hover:bg-white/10 hover:border-white/20 hover:shadow-[0_8px_40px_rgba(0,0,0,0.3),0_0_0_1px_rgba(255,255,255,0.05),inset_0_1px_0_rgba(255,255,255,0.08)] hover:-translate-y-0.5 relative;
+  }
+  
+  .glass-card::before {
+    content: '';
+    @apply absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent;
+  }
+
+  .status-overdue {
+    @apply border-l-[3px] border-l-red-500/80 bg-red-500/5 shadow-[0_4px_24px_rgba(239,68,68,0.1),inset_0_1px_0_rgba(255,255,255,0.04)];
+  }
+
+  .status-done {
+    @apply border-l-[3px] border-l-emerald-500/70 bg-emerald-500/5 opacity-85;
+  }
+
+  .status-ambiguous {
+    @apply border-l-[3px] border-l-amber-500/80 bg-amber-500/5 shadow-[0_4px_24px_rgba(245,158,11,0.08),inset_0_1px_0_rgba(255,255,255,0.04)];
+  }
+
+  .status-open {
+    @apply border-l-[3px] border-l-indigo-500/80;
+  }
+  
+  .status-waiting {
+    @apply border-l-[3px] border-l-violet-500/80 bg-violet-500/5;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-[0.67rem] font-bold tracking-wider uppercase whitespace-nowrap;
+  }
+}
