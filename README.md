@@ -78,15 +78,6 @@ RAW SOURCES  (transcript · calendars · emails · voice notes)
 
 ---
 
-## How it handles the Edge Cases (Assignment Constraints)
-
-1. **Deduplication:** The "vendor list for Raghav" is mentioned in the transcript (Monday), an email thread (Tuesday), and a voice note (Monday evening). The agent correctly identifies these are the same task and creates **one** action card.
-2. **Shifting Deadlines:** Divya's Expense Report was originally targeted for Thursday morning, but an email changes it to Wednesday evening. The agent successfully prioritizes the newest email data and rewrites the deadline.
-3. **Unclear Ownership:** The "Mumbai Office Lease" needs a signature, but nobody claims it. The agent refuses to hallucinate an owner, and instead flags it under **🟠 Needs Ownership**.
-4. **Rate Limit Recovery:** The extraction pipeline has built-in exponential backoff to handle Google Gemini free-tier 503 limits elegantly.
-
----
-
 ## Tools Used
 - **Python / FastAPI:** Core backend logic and REST API.
 - **React / Vite / Tailwind CSS:** Consumer-grade glassmorphism frontend interface.
