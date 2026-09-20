@@ -10,8 +10,8 @@ An AI agent that turns Arjun Malhotra's scattered executive inputs (meeting tran
 
 ## Live Demo
 
-- **Frontend (Vercel):** *[Insert Vercel Link Here]*
-- **Backend (Render):** *[Insert Render Link Here]*
+- **Frontend (Vercel):** *(https://productivity-agent-five.vercel.app/)*
+- **Backend (Render):** *https://productivity-agent-k0vi.onrender.com*
 
 ---
 
